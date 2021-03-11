@@ -1,6 +1,10 @@
 require 'pry'
 
 class Song
+  
+  extend Memorable
+  
+
   attr_accessor :name
   attr_reader :artist
 
@@ -20,11 +24,12 @@ class Song
 
   def self.reset_all
     self.all.clear
-  end
+end
 
-  def self.count
+def self.count
     self.all.count
-  end
+end
+  
 
   def artist=(artist)
     @artist = artist
@@ -33,4 +38,6 @@ class Song
   def to_param
     name.downcase.gsub(' ', '-')
   end
+
+  
 end
